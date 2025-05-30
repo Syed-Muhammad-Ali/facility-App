@@ -15,6 +15,7 @@ class AppTextfield extends StatefulWidget {
   Function(String)? onchanged;
   String? Function(String?)? validator;
   String? hint;
+  double? hintSize;
   Widget? subWidget;
   String? labelText;
   Color? filledColor;
@@ -76,6 +77,7 @@ class AppTextfield extends StatefulWidget {
     required this.autofillHints,
     this.cursorColor,
     this.suffixIconColor,
+    this.hintSize,
   });
 
   @override
@@ -194,7 +196,7 @@ class _AppTextfieldState extends State<AppTextfield> {
                 errorStyle: TextStyle(fontSize: 12, color: Colors.red),
                 hintText: widget.hint,
                 hintStyle: TextStyle(
-                  fontSize: 14,
+                  fontSize: widget.hintSize ?? 14,
                   fontWeight: FontWeight.w400,
                   color: widget.hintColor ?? AppColors.primary,
                 ),

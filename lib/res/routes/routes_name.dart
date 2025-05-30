@@ -6,6 +6,15 @@ class RouteName {
 
   // User Side Screen Name
   static const String bnbPage = '/bnbPage';
+  static const String userMenuPage = '/userMenuPage';
+  static const String userOpeningHourPage = '/userOpeningHourPage';
+  static const String userBusSchedule = '/userBusSchedule';
+  static const String userChurchService = '/userChurchService';
+  static const String userActivities = '/userActivities';
+  static const String userFeedback = '/userFeedback';
+  static const String chaplainSingup = '/chaplainSingup';
+  static const String editProfile = '/editProfile';
+  static const String changePassword = '/changePassword';
 
   // Driver Side Screen Name
   static const String homePage = '/homePage';

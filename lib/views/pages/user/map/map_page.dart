@@ -1,128 +1,11 @@
-// // ignore_for_file: deprecated_member_use
-
-// import 'dart:async';
-
-// import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
-// import 'package:google_maps_flutter/google_maps_flutter.dart';
-// import 'package:image/image.dart' as img;
-
-// Future<BitmapDescriptor> getCustomMarker(String assetPath, int width) async {
-//   ByteData data = await rootBundle.load(assetPath);
-//   Uint8List bytes = data.buffer.asUint8List();
-
-//   // Decode and resize the image
-//   img.Image? baseImage = img.decodeImage(bytes);
-//   img.Image resizedImage = img.copyResize(baseImage!, width: width);
-
-//   // Convert back to bytes
-//   Uint8List resizedBytes = Uint8List.fromList(img.encodePng(resizedImage));
-
-//   // Convert to bitmap descriptor
-//   return BitmapDescriptor.fromBytes(resizedBytes);
-// }
-
-// class MapPage extends StatefulWidget {
-//   const MapPage({super.key});
-
-//   @override
-//   State<MapPage> createState() => _MapPageState();
-// }
-
-// class _MapPageState extends State<MapPage> {
-//   final Completer<GoogleMapController> _controller =
-//       Completer<GoogleMapController>();
-//   final Set<Marker> _markers = {};
-//   final List<Map<String, dynamic>> locations = [
-//     {
-//       'position': LatLng(37.7749, -122.4194),
-//       'label': 'Bus Schedule',
-//       'iconPath': 'assets/icons/bus_schedule.png',
-//     },
-//     {
-//       'position': LatLng(37.7780, -122.4150),
-//       'label': 'Chaplain Center',
-//       'iconPath': 'assets/icons/chaplain_center.png',
-//     },
-//     {
-//       'position': LatLng(37.7795, -122.4125),
-//       'label': 'Dining Facility',
-//       'iconPath': 'assets/icons/dining_facility.png',
-//     },
-//     {
-//       'position': LatLng(37.7833, -122.4167),
-//       'label': 'MWR & Events',
-//       'iconPath': 'assets/icons/MWR_events.png',
-//     },
-//   ];
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _loadMarkers();
-//   }
-
-//   void _loadMarkers() async {
-//     BitmapDescriptor customIcon = await getCustomMarker();
-
-//     _markers.clear();
-
-//     for (int i = 0; i < locations.length; i++) {
-//       final location = locations[i];
-//       final icon = await getCustomMarker(location['iconPath']);
-//       _markers.add(
-//         Marker(
-//           markerId: MarkerId('marker_$i'),
-//           position: location['position'],
-//           icon: icon,
-//           onTap: () {},
-//         ),
-//       );
-//     }
-
-//     setState(() {});
-//   }
-
-//   static const CameraPosition _kLake = CameraPosition(
-//     bearing: 192.8334901395799,
-//     target: LatLng(37.7749, -122.4194),
-//     tilt: 59.440717697143555,
-//     zoom: 19.151926040649414,
-//   );
-
-//   Future<void> _goToTheLake() async {
-//     final GoogleMapController controller = await _controller.future;
-//     await controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
-//   }
-
-//   static const CameraPosition _kGooglePlex = CameraPosition(
-//     target: LatLng(37.42796133580664, -122.085749655962),
-//     zoom: 14.4746,
-//   );
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Stack(
-//         children: [
-//           GoogleMap(
-//             zoomControlsEnabled: false,
-//             initialCameraPosition: _kGooglePlex,
-//             markers: _markers,
-//             onMapCreated: (GoogleMapController controller) {
-//               _controller.complete(controller);
-//             },
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
 // ignore_for_file: deprecated_member_use
 
 import 'dart:async';
 
+import 'package:facility_managing/views/pages/user/MWR_event/MWR_events.dart';
+import 'package:facility_managing/views/pages/user/dining/dining_page.dart';
+import 'package:facility_managing/views/pages/user/user_chaplain_center/user_bus_schedule/user_bus_schedule.dart';
+import 'package:facility_managing/views/pages/user/user_chaplain_center/user_chaplain_center.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -152,6 +35,7 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   final Completer<GoogleMapController> _controller = Completer();
+
   final List<Map<String, dynamic>> locations = [
     {
       'position': LatLng(37.7749, -122.4194),
@@ -161,7 +45,7 @@ class _MapPageState extends State<MapPage> {
     {
       'position': LatLng(37.7780, -122.4150),
       'label': 'Chaplain Center',
-      'iconPath': 'assets/icons/chalpain_center.png',
+      'iconPath': 'assets/icons/chaplain_center.png',
     },
     {
       'position': LatLng(37.7795, -122.4125),
@@ -175,7 +59,7 @@ class _MapPageState extends State<MapPage> {
     },
   ];
 
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
   Map<MarkerId, Offset> _labelPositions = {};
   GoogleMapController? _mapController;
 
@@ -191,7 +75,7 @@ class _MapPageState extends State<MapPage> {
     // Load all icons concurrently
     List<Future<BitmapDescriptor>> iconFutures =
         locations.map((loc) {
-          return getCustomMarker(loc['iconPath'], width: 80);
+          return getCustomMarker(loc['iconPath'], width: 100);
         }).toList();
 
     List<BitmapDescriptor> icons = await Future.wait(iconFutures);
@@ -216,11 +100,24 @@ class _MapPageState extends State<MapPage> {
   }
 
   void _onMarkerTap(int index) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => DetailScreen(label: locations[index]['label']),
-      ),
-    );
+    Widget screen;
+    switch (index) {
+      case 0:
+        screen = UserBusSchedule();
+        break;
+      case 1:
+        screen = const UserChaplainCenter();
+        break;
+      case 2:
+        screen = const DiningPage();
+        break;
+      case 3:
+        screen = MWREvents();
+        break;
+      default:
+        screen = SizedBox();
+    }
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
   }
 
   Future<void> _updateLabelPositions() async {
@@ -303,26 +200,8 @@ class _MapPageState extends State<MapPage> {
                 ),
               ),
             );
-          }).toList(),
+          }),
         ],
-      ),
-    );
-  }
-}
-
-class DetailScreen extends StatelessWidget {
-  final String label;
-  const DetailScreen({super.key, required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(label)),
-      body: Center(
-        child: Text(
-          'Details about $label',
-          style: const TextStyle(fontSize: 24),
-        ),
       ),
     );
   }

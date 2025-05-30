@@ -1,12 +1,10 @@
 // ignore_for_file: unreachable_switch_default
 
-
 import 'package:facility_managing/res/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-enum AppFontFamily { roboto, inter, oxygen, lato }
+enum AppFontFamily { roboto, inter, poppins }
 
 class AppText extends StatelessWidget {
   const AppText(
@@ -47,20 +45,6 @@ class AppText extends StatelessWidget {
     TextStyle style;
 
     switch (fontFamily) {
-      case AppFontFamily.oxygen:
-        style = GoogleFonts.oxygen(
-          fontStyle: fontStyle ?? FontStyle.normal,
-          height: lineSpacing,
-          letterSpacing: letterSpacing,
-          decoration: textDecoration,
-          fontWeight: fontWeight,
-          fontSize:
-              fontSize ?? Theme.of(context).textTheme.bodyMedium!.fontSize,
-          color: color ?? AppColors.black,
-          decorationColor: decorationColor ?? AppColors.white,
-        );
-        break;
-
       case AppFontFamily.inter:
         style = GoogleFonts.inter(
           fontStyle: fontStyle ?? FontStyle.normal,
@@ -75,8 +59,8 @@ class AppText extends StatelessWidget {
         );
         break;
 
-      case AppFontFamily.lato:
-        style = GoogleFonts.lato(
+      case AppFontFamily.poppins:
+        style = GoogleFonts.poppins(
           fontStyle: fontStyle ?? FontStyle.normal,
           height: lineSpacing,
           letterSpacing: letterSpacing,

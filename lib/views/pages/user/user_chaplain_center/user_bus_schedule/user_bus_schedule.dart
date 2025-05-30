@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use, use_full_hex_values_for_flutter_colors
 
 import 'package:facility_managing/res/constants/app_colors.dart';
-import 'package:facility_managing/res/routes/routes_name.dart';
 import 'package:facility_managing/views/widgets/app_bar.dart';
 import 'package:facility_managing/views/widgets/app_container.dart';
 import 'package:facility_managing/views/widgets/app_text.dart';
@@ -9,7 +8,6 @@ import 'package:facility_managing/views/widgets/dotted_container.dart';
 import 'package:facility_managing/views/widgets/extension_sizebox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 class BusScheduleItem {
   final String number;
@@ -25,7 +23,9 @@ class BusScheduleItem {
   });
 }
 
-class BusSchedulePage extends StatelessWidget {
+class UserBusSchedule extends StatelessWidget {
+  UserBusSchedule({super.key});
+
   final List<BusScheduleItem> schedules = List.generate(
     5,
     (index) => BusScheduleItem(
@@ -36,18 +36,10 @@ class BusSchedulePage extends StatelessWidget {
     ),
   );
 
-  BusSchedulePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomBackAppBar(
-        title: "Bus Schedule",
-        showAction: true,
-        iconTab: () {
-          Get.toNamed(RouteName.addSchedulePage);
-        },
-      ),
+      appBar: CustomBackAppBar(title: "Bus Schedule"),
       body: Column(
         children: [
           2.hSpace(context),
@@ -86,11 +78,9 @@ class BusSchedulePage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const Spacer(),
-                          const Icon(Icons.more_vert),
                         ],
                       ),
-                      2.hSpace(context),
+                      1.hSpace(context),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -186,4 +176,3 @@ class BusSchedulePage extends StatelessWidget {
     );
   }
 }
-

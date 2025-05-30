@@ -28,6 +28,15 @@ import 'package:facility_managing/views/pages/authentication/signIn/signIn_page.
 import 'package:facility_managing/views/pages/authentication/signUp/signUp_page.dart';
 import 'package:facility_managing/views/pages/splash/splash_page.dart';
 import 'package:facility_managing/views/pages/user/bnb/bnb_page.dart';
+import 'package:facility_managing/views/pages/user/dining/user_feedback/user_feedback.dart';
+import 'package:facility_managing/views/pages/user/dining/user_menu/user_menu_page.dart';
+import 'package:facility_managing/views/pages/user/dining/user_opening_hour/user_opening_hour_page.dart';
+import 'package:facility_managing/views/pages/user/profile/change_password/change_password.dart';
+import 'package:facility_managing/views/pages/user/profile/edit_profile/edit_profile.dart';
+import 'package:facility_managing/views/pages/user/user_chaplain_center/chaplain_signup/chaplain_singup.dart';
+import 'package:facility_managing/views/pages/user/user_chaplain_center/user_activities/user_activities.dart';
+import 'package:facility_managing/views/pages/user/user_chaplain_center/user_bus_schedule/user_bus_schedule.dart';
+import 'package:facility_managing/views/pages/user/user_chaplain_center/user_church_service/user_church_service.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -44,6 +53,18 @@ class AppRoutes {
 
     // User Side Screen Name
     GetPage(name: RouteName.bnbPage, page: () => const BNBPage()),
+    GetPage(name: RouteName.userMenuPage, page: () => const UserMenuPage()),
+    GetPage(
+      name: RouteName.userOpeningHourPage,
+      page: () => const UserOpeningHourPage(),
+    ),
+    GetPage(name: RouteName.userBusSchedule, page: () => UserBusSchedule()),
+    GetPage(name: RouteName.userChurchService, page: () => UserChurchService()),
+    GetPage(name: RouteName.userActivities, page: () => UserActivities()),
+    GetPage(name: RouteName.userFeedback, page: () => UserFeedback()),
+    GetPage(name: RouteName.chaplainSingup, page: () => ChaplainSingup()),
+    GetPage(name: RouteName.editProfile, page: () => EditProfile()),
+    GetPage(name: RouteName.changePassword, page: () => ChangePassword()),
 
     // Driver Side Screen Name
     GetPage(name: RouteName.homePage, page: () => const HomePage()),
