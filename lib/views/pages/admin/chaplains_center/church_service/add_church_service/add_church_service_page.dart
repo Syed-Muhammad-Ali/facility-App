@@ -27,7 +27,6 @@ class _AddChurchServicePageState extends State<AddChurchServicePage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            2.hSpace(context),
             AppTextfield(
               hint: "Enter Title",
               ctr: titleCtrl,

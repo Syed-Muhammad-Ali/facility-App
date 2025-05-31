@@ -74,7 +74,6 @@ class _AddMenuPageState extends State<AddMenuPage> {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            4.hSpace(context),
             Center(
               child: AppText(
                 "Add Details of the Menu Listing as much as you can ",

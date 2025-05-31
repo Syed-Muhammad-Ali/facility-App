@@ -9,6 +9,7 @@ import 'package:facility_managing/views/widgets/pick_DateTime.dart';
 import 'package:facility_managing/views/widgets/toggleRowWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class OpeningHoursPage extends StatefulWidget {
   const OpeningHoursPage({super.key});
@@ -99,7 +100,9 @@ class _OpeningHoursPageState extends State<OpeningHoursPage> {
               AppButton.primary(
                 context,
                 buttonText: 'Add ',
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 width: context.w * 0.65,
                 heignt: context.h * 0.05,
               ),

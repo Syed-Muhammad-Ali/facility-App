@@ -26,7 +26,6 @@ class _AddActivitiesPageState extends State<AddActivitiesPage> {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            4.hSpace(context),
             AppTextfield(
               hint: "Enter Title",
               ctr: titleCtrl,

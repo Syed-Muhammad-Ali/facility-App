@@ -28,7 +28,6 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            2.hSpace(context),
             AppTextfield(
               hint: "Bus Number",
               ctr: busNoCtrl,
