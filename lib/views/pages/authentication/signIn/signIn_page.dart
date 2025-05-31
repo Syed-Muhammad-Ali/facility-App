@@ -84,7 +84,7 @@ class _SignInPageState extends State<SignInPage> {
               context,
               buttonText: 'Sign In',
               onPressed: () {
-                if (emailCtrl.text == "user@gmail.com" &&
+                if (emailCtrl.text == "admin@gmail.com" &&
                     passwordCtrl.text == "123") {
                   Get.toNamed(RouteName.homePage);
                 } else {

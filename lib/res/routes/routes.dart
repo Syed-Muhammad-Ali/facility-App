@@ -11,6 +11,8 @@ import 'package:facility_managing/views/pages/admin/chaplains_center/activities/
 import 'package:facility_managing/views/pages/admin/chaplains_center/bus_schedule/add_bus_schedule/add_schedule_page.dart';
 import 'package:facility_managing/views/pages/admin/chaplains_center/bus_schedule/bus_schedule_page.dart';
 import 'package:facility_managing/views/pages/admin/chaplains_center/chaplains_center_page.dart';
+import 'package:facility_managing/views/pages/admin/chaplains_center/church_service/add_announcement/add_announcement_page.dart';
+import 'package:facility_managing/views/pages/admin/chaplains_center/church_service/add_church_service/add_church_service_page.dart';
 import 'package:facility_managing/views/pages/admin/chaplains_center/church_service/church_service_details/church_service_deatils.dart';
 import 'package:facility_managing/views/pages/admin/chaplains_center/church_service/church_service_page.dart';
 import 'package:facility_managing/views/pages/admin/chaplains_center/church_service_item/church_service_item.dart';
@@ -27,6 +29,7 @@ import 'package:facility_managing/views/pages/admin/maintaince_report/maintaince
 import 'package:facility_managing/views/pages/authentication/signIn/signIn_page.dart';
 import 'package:facility_managing/views/pages/authentication/signUp/signUp_page.dart';
 import 'package:facility_managing/views/pages/splash/splash_page.dart';
+import 'package:facility_managing/views/pages/user/MWR_event/book_room/book_room_page.dart';
 import 'package:facility_managing/views/pages/user/bnb/bnb_page.dart';
 import 'package:facility_managing/views/pages/user/dining/user_feedback/user_feedback.dart';
 import 'package:facility_managing/views/pages/user/dining/user_menu/user_menu_page.dart';
@@ -65,6 +68,7 @@ class AppRoutes {
     GetPage(name: RouteName.chaplainSingup, page: () => ChaplainSingup()),
     GetPage(name: RouteName.editProfile, page: () => EditProfile()),
     GetPage(name: RouteName.changePassword, page: () => ChangePassword()),
+    GetPage(name: RouteName.bookRoomPage, page: () => BookRoomPage()),
 
     // Driver Side Screen Name
     GetPage(name: RouteName.homePage, page: () => const HomePage()),
@@ -110,5 +114,8 @@ class AppRoutes {
     GetPage(name: RouteName.bookingsPage, page: () => BookingsPage()),
     GetPage(name: RouteName.addBookingPage, page: () => AddBookingPage()),
     GetPage(name: RouteName.teamPage, page: () => TeamPage()),
+    GetPage(name: RouteName.addChurchServicePage, page: () => AddChurchServicePage()),
+    GetPage(name: RouteName.addChurchServicePage, page: () => AddChurchServicePage()),
+    GetPage(name: RouteName.addAnnouncementPage, page: () => AddAnnouncementPage()),
   ];
 }

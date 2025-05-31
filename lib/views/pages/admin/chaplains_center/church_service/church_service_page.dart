@@ -18,7 +18,13 @@ class _ChurchServicePageState extends State<ChurchServicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomBackAppBar(title: "Church Services"),
+      appBar: CustomBackAppBar(
+        title: "Church Services",
+        showAction: true,
+        iconTab: () {
+          Get.toNamed(RouteName.addChurchServicePage);
+        },
+      ),
       body: Column(
         children: [
           2.hSpace(context),

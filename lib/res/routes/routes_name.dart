@@ -15,6 +15,7 @@ class RouteName {
   static const String chaplainSingup = '/chaplainSingup';
   static const String editProfile = '/editProfile';
   static const String changePassword = '/changePassword';
+  static const String bookRoomPage = '/bookRoomPage';
 
   // Driver Side Screen Name
   static const String homePage = '/homePage';
@@ -42,4 +43,6 @@ class RouteName {
   static const String bookingsPage = '/bookingsPage';
   static const String addBookingPage = '/addBookingPage';
   static const String teamPage = '/teamPage';
+  static const String addChurchServicePage = '/addChurchServicePage';
+  static const String addAnnouncementPage = '/addAnnouncementPage';
 }

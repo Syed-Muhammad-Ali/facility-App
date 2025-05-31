@@ -1,4 +1,4 @@
-// ignore_for_file: library_prefixes, non_constant_identifier_names, avoid_print, unnecessary_null_comparison, deprecated_member_use
+// ignore_for_file: library_prefixes, non_constant_identifier_names, avoid_print, unnecessary_null_comparison, deprecated_member_use, use_build_context_synchronously
 
 import 'dart:io';
 

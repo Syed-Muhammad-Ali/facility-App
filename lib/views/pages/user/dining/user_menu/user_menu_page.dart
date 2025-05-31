@@ -148,7 +148,6 @@ class _UserMenuPageState extends State<UserMenuPage> {
                           ],
                         ),
                       ),
-                      const Icon(Icons.more_vert, size: 20),
                     ],
                   ),
                 );

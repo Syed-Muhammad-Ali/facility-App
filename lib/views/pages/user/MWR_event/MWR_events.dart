@@ -1,10 +1,14 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:facility_managing/res/constants/app_colors.dart';
+import 'package:facility_managing/res/routes/routes_name.dart';
 import 'package:facility_managing/views/widgets/app_bar.dart';
 import 'package:facility_managing/views/widgets/app_button.dart';
 import 'package:facility_managing/views/widgets/app_container.dart';
 import 'package:facility_managing/views/widgets/app_text.dart';
 import 'package:facility_managing/views/widgets/extension_sizebox.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 // class MWREvents extends StatefulWidget {
 //   const MWREvents({super.key});
@@ -107,13 +111,15 @@ class MWREvents extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              AppText(
                 'Events',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: AppColors.textColor,
               ),
-              const SizedBox(height: 12),
+              2.hSpace(context),
               SizedBox(
-                height: context.h * 0.45,
+                height: context.h * 0.4,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: events.length,
@@ -140,38 +146,32 @@ class MWREvents extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                AppText(
                                   event.title,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18,
-                                  ),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.textColor,
                                 ),
-                                const SizedBox(height: 4),
-                                Text(
+                                0.5.hSpace(context),
+                                AppText(
                                   event.date,
-                                  style: TextStyle(
-                                    color: Colors.grey.shade700,
-                                    fontSize: 13,
-                                  ),
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.textColor.withOpacity(.56),
                                 ),
-                                const SizedBox(height: 2),
-                                Text(
+                                0.5.hSpace(context),
+                                AppText(
                                   event.address,
-                                  style: TextStyle(
-                                    color: Colors.grey.shade700,
-                                    fontSize: 13,
-                                  ),
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.textColor.withOpacity(.56),
                                 ),
-                                const SizedBox(height: 6),
-                                Text(
+                                1.hSpace(context),
+                                AppText(
                                   event.description,
-                                  style: TextStyle(
-                                    color: Colors.grey.shade800,
-                                    fontSize: 14,
-                                  ),
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.grey,
                                 ),
                               ],
                             ),
@@ -182,7 +182,7 @@ class MWREvents extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 10),
+              1.hSpace(context),
               ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
@@ -193,48 +193,52 @@ class MWREvents extends StatelessWidget {
                       hours: entry.value,
                     );
                   }),
-                  const SizedBox(height: 12),
-
-                  AppContainer(
-                    color: AppColors.primary.withOpacity(0.9),
-                    padding: EdgeInsets.all(10),
-                    margin: const EdgeInsets.only(
-                      bottom: 5,
-                      top: 5,
-                      left: 5,
-                      right: 5,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppText(
-                          "Book a Room",
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.black,
-                        ),
-                        1.hSpace(context),
-                        AppText(
-                          "Lorem ipsum dolor sit amet consectetur. Rhoncus pellentesque mi ac neque pulvinar ultrices. Mauris imperdiet bibendum pretium aliquet pellentesque ultricies feugiat. ",
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.textColor,
-                        ),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: AppButton.primary(
-                            context,
-                            heignt: context.h * 0.04,
-                            width: context.w * 0.2,
-                            onPressed: () {},
-                            // isShadow: true,
-                            buttonText: 'Sign Up',
-                            buttoncolor: AppColors.white,
-                            textColor: AppColors.primary,
+                  1.hSpace(context),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(RouteName.bookRoomPage);
+                    },
+                    child: AppContainer(
+                      color: AppColors.primary.withOpacity(0.9),
+                      padding: EdgeInsets.all(10),
+                      margin: const EdgeInsets.only(
+                        bottom: 5,
+                        top: 5,
+                        left: 5,
+                        right: 5,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(
+                            "Book a Room",
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.black,
                           ),
-                        ),
-                      ],
+                          1.hSpace(context),
+                          AppText(
+                            "Lorem ipsum dolor sit amet consectetur. Rhoncus pellentesque mi ac neque pulvinar ultrices. Mauris imperdiet bibendum pretium aliquet pellentesque ultricies feugiat. ",
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.textColor,
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: AppButton.primary(
+                              context,
+                              heignt: context.h * 0.04,
+                              width: context.w * 0.2,
+                              onPressed: () {},
+                              // isShadow: true,
+                              buttonText: 'Sign Up',
+                              buttoncolor: AppColors.white,
+                              textColor: AppColors.primary,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -264,9 +268,11 @@ class OperatingHoursExpansionTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 5, top: 5, left: 5, right: 5),
       borderRadius: BorderRadius.circular(10),
       child: ExpansionTile(
-        title: Text(
+        title: AppText(
           title,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: AppColors.textColor,
         ),
         children:
             hours
@@ -279,8 +285,18 @@ class OperatingHoursExpansionTile extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(hour.day, style: const TextStyle(fontSize: 14)),
-                        Text(hour.time, style: const TextStyle(fontSize: 14)),
+                        AppText(
+                          hour.day,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
+                        ),
+                        AppText(
+                          hour.time,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
+                        ),
                       ],
                     ),
                   ),

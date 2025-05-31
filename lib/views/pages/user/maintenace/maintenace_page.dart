@@ -20,7 +20,7 @@ class _MaintenacePageState extends State<MaintenacePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomBackAppBar(title: "Maintenance Report"),
+      appBar: CustomBackAppBar(title: "Maintenance Report", showIcon: false),
 
       body: Padding(
         padding: const EdgeInsets.all(20.0),

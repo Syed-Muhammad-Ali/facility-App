@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:facility_managing/res/constants/app_colors.dart';
 import 'package:facility_managing/res/routes/routes_name.dart';
 import 'package:facility_managing/views/pages/user/profile/components/image_profile.dart';
+import 'package:facility_managing/views/widgets/app_bar.dart';
 import 'package:facility_managing/views/widgets/app_text.dart';
 import 'package:facility_managing/views/widgets/extension_sizebox.dart';
 import 'package:flutter/material.dart';
@@ -44,18 +45,26 @@ class _ProfilePageState extends State<ProfilePage> {
         "title": "Delete Account",
         "onTap": () {},
       },
-      {"icon": "assets/icons/logout.svg", "title": "Log out", "onTap": () {}},
+      {
+        "icon": "assets/icons/logout.svg",
+        "title": "Log out",
+        "onTap": () {
+          Get.toNamed(RouteName.signInPage);
+        },
+      },
     ]);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomBackAppBar(title: "Profile", showIcon: false),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            8.hSpace(context),
+            2.hSpace(context),
             // Center(child: ImageProfile(editProfileCtrl: editProfileCtrl)),
             Center(
               child: ImageProfile(
@@ -74,7 +83,7 @@ class _ProfilePageState extends State<ProfilePage> {
               fontWeight: FontWeight.w400,
               color: AppColors.black,
             ),
-
+            4.hSpace(context),
             ListView.separated(
               itemCount: settingsOptions.length,
               physics: NeverScrollableScrollPhysics(),

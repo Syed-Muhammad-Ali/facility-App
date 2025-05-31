@@ -10,6 +10,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? iconTab;
   final bool showAction;
+  final bool showIcon;
   VoidCallback? ontap;
   final String? iconPath;
 
@@ -20,6 +21,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showAction = false,
     this.ontap,
     this.iconPath,
+    this.showIcon = true,
   });
 
   @override
@@ -39,18 +41,20 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: AppColors.barTextColor,
             fontFamily: AppFontFamily.roboto,
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: InkWell(
-              onTap: ontap ?? () => Get.back(),
-              borderRadius: BorderRadius.circular(10),
-              child: const Icon(
-                Icons.arrow_back_ios_new,
-                size: 18,
-                color: Colors.black,
-              ),
-            ),
-          ),
+          showIcon
+              ? Align(
+                alignment: Alignment.centerLeft,
+                child: InkWell(
+                  onTap: ontap ?? () => Get.back(),
+                  borderRadius: BorderRadius.circular(10),
+                  child: const Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 18,
+                    color: Colors.black,
+                  ),
+                ),
+              )
+              : SizedBox(),
         ],
       ),
       actions:

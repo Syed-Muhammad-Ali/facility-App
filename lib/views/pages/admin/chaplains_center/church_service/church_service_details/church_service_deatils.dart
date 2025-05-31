@@ -1,9 +1,11 @@
 import 'package:facility_managing/res/constants/app_colors.dart';
+import 'package:facility_managing/res/routes/routes_name.dart';
 import 'package:facility_managing/views/widgets/app_bar.dart';
 import 'package:facility_managing/views/widgets/app_container.dart';
 import 'package:facility_managing/views/widgets/app_text.dart';
 import 'package:facility_managing/views/widgets/extension_sizebox.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChurchServiceDetails extends StatefulWidget {
   const ChurchServiceDetails({super.key});
@@ -27,7 +29,7 @@ class _ChurchServiceDetailsState extends State<ChurchServiceDetails> {
           if (showDetails) {
             // action when add icon tapped
           } else {
-            // action when dotted icon tapped
+            Get.toNamed(RouteName.addAnnouncementPage);
           }
         },
       ),
